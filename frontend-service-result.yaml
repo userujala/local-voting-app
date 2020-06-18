@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: front-service-resultapp
+  labels:
+    name: front-service-resultapp
+    type: frontend-service-result
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30081
+  
+  selector:
+    name: result-app
+    type: frontend-result
+    app: demo-voting-app
